@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Input } from './ui/input';
 import { Checkbox } from './ui/checkbox';
 import { API_BASE_URL, CONVERSION_TYPES } from '@/lib/constants';
 import { useToast } from '@/hooks/use-toast';
+import { useDebounce } from '@/hooks/use-debounce';
 
 interface ConversionFormProps {
   onConvert: (result: { [key: string]: { converted_text: string , original_text: string } }) => void;
@@ -16,9 +17,16 @@ export function ConversionForm({ onConvert }: ConversionFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  async function handleTextChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const newText = e.target.value;
-    setText(newText);
+  const debouncedValue = useDebounce(text, 1500); // 1500ms delay
+
+  useEffect(() => {
+    if (debouncedValue) {
+      handleConversion(debouncedValue);
+    }
+  }, [debouncedValue]);
+
+  async function handleConversion(newText: string) {
+    if (!newText) return;
     setIsLoading(true);
 
     const api_values = type.map(type => CONVERSION_TYPES[type].api_value);
@@ -52,6 +60,11 @@ export function ConversionForm({ onConvert }: ConversionFormProps) {
     } finally {
       setIsLoading(false);
     }
+  }
+
+  function handleTextChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const newText = e.target.value;
+    setText(newText);
   }
 
   return (
