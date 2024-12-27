@@ -1,15 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Checkbox } from './ui/checkbox';
 import { API_BASE_URL, CONVERSION_TYPES } from '@/lib/constants';
-import { ConversionType } from '@/types';
 import { useToast } from '@/hooks/use-toast';
 
 interface ConversionFormProps {
-  onConvert: (result: { [key: string]: string }) => void;
+  onConvert: (result: { [key: string]: { converted_text: string , original_text: string } }) => void;
 }
 
 export function ConversionForm({ onConvert }: ConversionFormProps) {
