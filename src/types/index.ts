@@ -1,10 +1,10 @@
 export type ConversionType = 
   | 'FULL_TO_HALF'
   | 'HALF_TO_FULL'
-  | 'ROMAJI_TO_HIRAGANA'
-  | 'ROMAJI_TO_KATAKANA'
-  | 'KANA_TO_ROMAJI'
-  | 'KATAKANA_TO_ROMAJI';
+  | 'ROMANJI_TO_HIRAGANA'
+  | 'ROMANJI_TO_KATAKANA'
+  | 'KANA_TO_ROMANJI'
+  | 'KATAKANA_TO_ROMANJI';
 
 export interface ConversionRequest {
   text: string;

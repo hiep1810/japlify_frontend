@@ -5,7 +5,7 @@ import { ConversionForm } from '@/components/conversion-form';
 import { ConversionResult } from '@/components/conversion-result';
 
 export default function Home() {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState<{ [key: string]: string }>({});
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-2xl">
