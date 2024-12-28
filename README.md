@@ -1,8 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Text Conversion App
 
-## Getting Started
+A modern web application built with [Next.js](https://nextjs.org) that provides real-time text conversion with multiple transformation options.
 
-First, run the development server:
+## Features
+
+- ⚡ Real-time text conversion
+- 🔄 Multiple conversion types supported
+- 🎨 Clean and responsive UI with loading states
+- 🚀 Optimized API requests with debouncing
+- 💻 User-friendly interface
+- 🌐 API integration ready
+- 🎯 Type-safe with TypeScript
+- 📱 Mobile-first design
+
+## Quick Start
+
+First, clone the repository:
+
+```bash
+git clone https://github.com/yourusername/text-conversion-app.git
+cd text-conversion-app
+```
+
+Install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +40,100 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🔥 [Next.js](https://nextjs.org/) - React framework for production
+- 💅 [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
+- 🎨 [shadcn/ui](https://ui.shadcn.com/) - Re-usable UI components
+- 🎯 [TypeScript](https://www.typescriptlang.org/) - Static type checking
+- 📦 [Lucide React](https://lucide.dev/) - Beautiful & consistent icons
+- 🔄 Custom hooks for state management
+- ⚡ API integration with debouncing
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  ├── app/              # Next.js app router pages
+  ├── components/       # React components
+  │   ├── ui/          # Reusable UI components
+  │   └── forms/       # Form-related components
+  ├── hooks/           # Custom React hooks
+  │   ├── use-debounce.ts
+  │   └── use-toast.ts
+  ├── lib/            # Utilities and constants
+  │   ├── constants.ts
+  │   └── utils.ts
+  └── types/          # TypeScript type definitions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `ConversionForm`: Main form component with real-time conversion
+- `Input`: Enhanced input component with loading states
+- `Toast`: Notification system for feedback
+- Custom hooks for debouncing and notifications
 
-## Deploy on Vercel
+## API Reference
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application uses the following API endpoints:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Text Conversion
+
+```http
+GET /api/convert
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `text` | `string` | **Required**. Text to convert |
+| `type` | `string` | **Required**. Conversion type |
+
+## Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+NEXT_PUBLIC_API_URL=your_api_url
+```
+
+## Development
+
+```bash
+# Run development server
+npm run dev
+
+# Run tests
+npm run test
+
+# Run linting
+npm run lint
+```
+
+## Deployment
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Acknowledgments
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [shadcn/ui](https://ui.shadcn.com)
