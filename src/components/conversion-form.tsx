@@ -18,7 +18,7 @@ export function ConversionForm({ onConvert }: ConversionFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const debouncedValue = useDebounce(text, 1500); // 1500ms delay
+  const debouncedValue = useDebounce(text, 750); // 750ms delay
 
   useEffect(() => {
     if (debouncedValue) {
