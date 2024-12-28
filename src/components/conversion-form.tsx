@@ -6,6 +6,7 @@ import { Checkbox } from './ui/checkbox';
 import { API_BASE_URL, CONVERSION_TYPES } from '@/lib/constants';
 import { useToast } from '@/hooks/use-toast';
 import { useDebounce } from '@/hooks/use-debounce';
+import { Loader2 } from "lucide-react";
 
 interface ConversionFormProps {
   onConvert: (result: { [key: string]: { converted_text: string , original_text: string } }) => void;
@@ -93,13 +94,22 @@ export function ConversionForm({ onConvert }: ConversionFormProps) {
         ))}
       </div>
 
-      <Input
-        type="text"
-        value={text}
-        onChange={handleTextChange}
-        placeholder="Enter text to convert..."
-        required
-      />
+      <div className="relative">
+        <Input
+          type="text"
+          value={text}
+          onChange={handleTextChange}
+          placeholder="Enter text to convert..."
+          required
+          disabled={isLoading}
+          className={`transition-opacity ${
+            isLoading ? 'opacity-50 cursor-not-allowed animate-pulse' : ''
+          }`}
+        />
+        {isLoading && (
+          <Loader2 className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-muted-foreground" />
+        )}
+      </div>
     </form>
   );
 }
