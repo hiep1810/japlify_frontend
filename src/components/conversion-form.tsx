@@ -17,12 +17,12 @@ interface ConversionFormProps {
 }
 
 export function ConversionForm({ onConvert }: ConversionFormProps) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState<string>('');
   const [type, setType] = useState<string[]>(Object.keys(CONVERSION_TYPES));
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const debouncedValue = useDebounce(text, 750); // 750ms delay
+  const debouncedValue = useDebounce<string>(text, 750); // 750ms delay
 
   useEffect(() => {
     if (debouncedValue) {
