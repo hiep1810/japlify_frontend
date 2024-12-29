@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="container mx-auto px-4 py-8 max-w-2xl">
       <h1 className="text-3xl font-bold mb-8 text-center">
-        Japanese Text Converter
+        Japlify - Japanese Text Converter
       </h1>
       
       <div className="prose max-w-none mb-8">
