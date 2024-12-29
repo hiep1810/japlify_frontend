@@ -8,8 +8,12 @@ import { useToast } from '@/hooks/use-toast';
 import { useDebounce } from '@/hooks/use-debounce';
 import { Loader2 } from "lucide-react";
 
+interface ConversionResult {
+  [key: string]: { converted_text: string , original_text: string }
+}
+
 interface ConversionFormProps {
-  onConvert: (result: { [key: string]: { converted_text: string , original_text: string } }) => void;
+  onConvert: (result: ConversionResult) => void;
 }
 
 export function ConversionForm({ onConvert }: ConversionFormProps) {
@@ -48,7 +52,7 @@ export function ConversionForm({ onConvert }: ConversionFormProps) {
       const result = type.reduce((acc, currentType, index) => {
         acc[currentType] = datas[index];
         return acc;
-      }, {} as { [key: string]: any });
+      }, {} as ConversionResult);
 
       onConvert(result);
       
