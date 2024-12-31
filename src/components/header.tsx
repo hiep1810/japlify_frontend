@@ -9,7 +9,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b">
+    <header className="sticky top-0 z-50 w-full border-b bg-white">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="flex flex-1 items-center justify-between">
           {/* Logo */}
@@ -24,7 +24,7 @@ export function Header() {
               className={cn(
                 "transition-colors hover:text-foreground/80",
                 pathname === "/" 
-                ? "text-foreground" 
+                ? "font-bold text-foreground" 
                 : "text-foreground/60"
               )}
             >
@@ -35,7 +35,7 @@ export function Header() {
               className={cn(
                 "transition-colors hover:text-foreground/80",
                 pathname === "/docs" 
-                  ? "text-foreground"
+                  ? "font-bold text-foreground"
                   : "text-foreground/60"
               )}
             >
