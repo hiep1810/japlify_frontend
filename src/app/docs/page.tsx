@@ -6,7 +6,6 @@ import { CONVERSION_TYPES } from '@/lib/constants';
 import { CodeBlock } from '@/components/ui/code-block';
 
 export default function DocsPage() {
-  const [activeTab, setActiveTab] = useState('overview');
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const curlExample = `curl -X GET "${baseUrl}/convert/fullsize-to-halfsize?text=テスト"`;
