@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CONVERSION_TYPES } from '@/lib/constants';
 import { CodeBlock } from '@/components/ui/code-block';
