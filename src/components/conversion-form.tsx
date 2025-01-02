@@ -72,8 +72,13 @@ export function ConversionForm({ onConvert }: ConversionFormProps) {
     setText(newText);
   }
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    handleConversion(text);
+  }
+
   return (
-    <form onSubmit={() => {}} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
         {Object.keys(CONVERSION_TYPES).map((option) => (
           <div key={option} className="flex items-center space-x-2">
